@@ -6,8 +6,11 @@ import { useDispatch } from 'react-redux'
 import { addPrice } from '../redux/PriceTotalSlice';
 
 
-const CartItem = ({id , img , price ,productName , onDelete }) => {
+const CartItem = ({id , img , price ,productName , onDelete , item}) => {
     // const [value , setValue] = useState(1)
+
+    console.log(id)
+
   
 
     const dispatch = useDispatch();
@@ -36,14 +39,14 @@ const CartItem = ({id , img , price ,productName , onDelete }) => {
         <tr data-aos="flip-up" className='cart__row'>
         <td>
             <div className='cart__info'>
-                <img src={img}/>
+                <img src={item.cart.img}/>
 
-                <p>{productName}</p>
+                <p>{item.cart.productName}</p>
             </ div>
         </td>
 
         <td>
-            ${price}
+            ${item.cart.price}
         </td>
 
         <td>

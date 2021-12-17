@@ -13,7 +13,7 @@ const Cart = ({cartItem , deleteItem}) => {
     const total = price.reduce((acc ,item) => (acc += item), 0)
         //    const totalPrice = useSelector((state) => state.total)
   
-
+       console.log()
 
     // const onChange = (e) => {
     //     setValue(e.target.value)
@@ -39,14 +39,17 @@ const Cart = ({cartItem , deleteItem}) => {
                    </tr>
 
                  {
-                     cartItem.map(item => (
+                     cartItem.map(cart => (
                        <CartItem
-                       img={item.img}
-                        productName={item.productName}
-                        price={item.price}
-                        key={item.id}
-                        id={item.id}
+                    //    img={item.img}
+                    //     productName={item.productName}
+                    //     price={item.price}
+                    //     key={item.id}
+                    //     id={item.id}
                         onDelete= {deleteItem}
+                    item={cart}
+                    key={cart.id}
+                    id={cart.id}
                         
                     
                        

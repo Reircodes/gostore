@@ -14,6 +14,12 @@ import Footer from './components/Footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Login from './components/Login';
+import db from './firebase'
+import { collection,addDoc, getDoc } from 'firebase/firestore/lite'
+import {  getDocs } from 'firebase/firestore/lite';
+import { doc,  deleteDoc  } from "firebase/firestore/lite";
+
+
 
 function App() {
   const cart = useSelector((state) => state.cart)
@@ -24,39 +30,70 @@ function App() {
 
   console.log(cartItem)
 
-  const client = axios.create({
-    url : "http://localhost:5000"
-  })
-
   useEffect(()=> {
- 
- fetchCartItems()
+  async function getPosts() {
+      const postsCol=collection(db, 'cartItem');
+      const postSnapshot=await getDocs(postsCol);
 
-  } , [cart])
-
-
-  const fetchCartItems = () => {
-    axios.get('http://localhost:5000/cartItem').then((response) => {
-      setCartItem(response.data)
-      }).catch((error) => {
-        console.log(error)
-  })
-
-  setCartItem(cart)
+      setCartItem(postSnapshot.docs.map(doc => ({cart:doc.data() , id : doc.id })))
+        
 
   }
-
+  getPosts();
+  } , [cart])
 
 
 
   
   // Delete Task
 
-  const deleteItem = async (id) => {
-      await fetch(`http://localhost:5000/cartItem/${id}` ,
-      {
-        method: 'DELETE'
-      })
+   async function deleteItem (id) {
+      // await fetch(`http://localhost:5000/cartItem/${id}` ,
+      // {
+      //   method: 'DELETE'
+      // // })
+      // await deleteDoc(doc(db, "cartItem"));
+
+      // db.collection('cartItem').doc(id).delete()
+      // const postsCol=collection(db, 'cartItem');
+
+      // await postsCol.docs(id).delete();
+
+      // var docRef = collection(db, "cartItem").doc(id)
+
+      // docRef.delete()
+
+      
+
+      // const postsCol=collection(db, 'cartItem');
+      // // await deleteDoc(postsCol , id)
+      // db.collection("cartItem").document(id).delete() 
+
+      var ref = doc(db,'cartItem',id);
+
+
+
+      const docSnap = await getDoc(ref)
+
+      console.log(docSnap)
+
+
+      if(docSnap.exists()){
+        await deleteDoc(ref).then(()=> console.log('Success')).catch((err) => {
+          console.log('Unsuccesful Operation')
+        })
+
+      }else{
+        console.log('Docc does not exist')
+      }
+
+      
+// await deleteDoc(doc(db, "cartItem", id));
+            
+
+      
+
+
 
       setCartItem(cartItem.filter((item) => item.id !== id
       ))

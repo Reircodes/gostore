@@ -4,6 +4,10 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { useDispatch } from 'react-redux'
 import { addProductToCart } from '../redux/cartSlice';
 import { useSelector } from 'react-redux';
+import db from '../firebase';
+import { addDoc , collection} from 'firebase/firestore/lite'
+import {setDoc } from "firebase/firestore"; 
+
 
 
 
@@ -12,7 +16,6 @@ const Products = ({discount , img , price , productName, key}) => {
    const cart = useSelector((state) => state.cart)
   
 
-   console.log(cart)
 
 
    const onDoubleClick = () => {
@@ -32,18 +35,47 @@ const Products = ({discount , img , price , productName, key}) => {
             
             }
 
+            await addDoc(collection(db,"cartItem"),
+            {
+                img : img ,
+                productName : productName ,
+                price : price ,
+                discount : discount ,
+            
+            })
 
-        const res = await fetch('http://localhost:5000/cartItem' , 
-        {
-          method: 'POST',
-          headers: {
-            'Content-type': 'application/json'
-          },
-          body: JSON.stringify(item)
-        })
+            // const cartRef = collection(db , "cartItem");
+
+            // await setDoc(doc(cartRef)),
+            // {
+            //     img : img ,
+            //     productName : productName ,
+            //     price : price ,
+            //     discount : discount ,
+            // }
+
+//             const citiesRef = collection(db, "cartItem");
+
+// await setDoc(doc(citiesRef, id), {
+//     img: img, productName: productName, price: price,
+//     discount: discount, 
+//     });
 
 
-        console.log(res)
+            
+
+
+        // const res = await fetch('http://localhost:5000/cartItem' , 
+        // {
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-type': 'application/json'
+        //   },
+        //   body: JSON.stringify(item)
+        // })
+
+
+        // console.log(res)
 
 
         setDisable('true')

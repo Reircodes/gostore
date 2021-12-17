@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "cartItem": [
+    {
+      "img": "https://gostore-be87.kxcdn.com/gostore/wp-content/uploads/2021/01/electronic-9.jpg",
+      "productName": "Simple Mobile 4G LTE Prepaid Smartphone",
+      "price": "129.00",
+      "discount": "150.00",
+      "id": 1
+    },
+    {
+      "img": "https://gostore-be87.kxcdn.com/gostore/wp-content/uploads/2021/01/electronic-22.jpg",
+      "productName": "Apple iMac with Retina 5K, 27-inch Display",
+      "price": "699.00",
+      "discount": "499.00",
+      "id": 2
+    },
+    {
+      "img": "https://gostore-be87.kxcdn.com/gostore/wp-content/uploads/2021/02/electronic-66.jpg",
+      "productName": "PlayStation 5 DualSense Wireless Controller",
+      "price": "120.00",
+      "discount": "220.00",
+      "id": 3
+    },
+    {
+      "img": "https://gostore-be87.kxcdn.com/gostore/wp-content/uploads/2021/02/electronic-40.jpg",
+      "productName": "TOSHIBA Electric Rice Cooker Model 18NMFIAN",
+      "price": "199.00",
+      "discount": "299.00",
+      "id": 4
+    },
+    {
+      "img": "https://gostore-be87.kxcdn.com/gostore/wp-content/uploads/2021/01/electronic-51.jpg",
+      "productName": "Note 9 128GB Factory Unlocked Tablet",
+      "price": "699.00",
+      "discount": "999.00",
+      "id": 5
+    }
+  ]
+}
