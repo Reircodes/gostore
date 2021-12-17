@@ -1,0 +1,53 @@
+.products {
+    border: 1px solid rgb(233, 233, 233);
+    text-align: left;
+    padding: 1.3rem;
+}
+
+.products > img  {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.products > p {
+    font-size: 14px;
+    color: #707070;
+    margin:0;
+    padding-bottom:.5rem;
+    line-height: 20px;
+}
+
+.price {
+    margin-top: .4rem;
+    color: red;
+    font-size: 14px;
+}
+
+.price s {
+    color: #707070;
+    padding-right: 0.5rem;
+    font-size: 12px;
+
+}
+
+.products__button {
+    background-color: transparent;
+    border: none;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #b9abab;
+    cursor: pointer;
+    padding: 0;
+    font-family: var(--raleway);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+
+}
+
+.products__button:hover {
+    color: black;
+    text-decoration: underline;
+}

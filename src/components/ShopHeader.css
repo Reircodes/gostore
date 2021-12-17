@@ -1,0 +1,36 @@
+
+.shopheader__container {
+    margin: auto;
+    max-width: 1100px;
+    font-family: var(--raleway-font);
+   
+
+}
+
+
+.shopheader {
+    background-color: #F6F9FC; ;
+    padding:1.2rem;
+    text-align: left;
+
+  
+
+}
+
+.shopheader__container > h1 {
+    font-size:24px;
+    line-height: 34px;
+     padding-bottom: 7px;
+}
+
+
+
+.shopheader__container > p {
+     font-size: 14px;
+     color: #161616;
+}
+
+.shopheader__container > p > span {
+    color:#707070;
+    font-size: ;
+}

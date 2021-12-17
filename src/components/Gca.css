@@ -1,0 +1,88 @@
+
+.gca__product {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(250px , 1fr));
+
+}
+
+.gca {
+    padding: 0.8rem;
+    margin: 0 auto;
+    max-width: 1100px;
+    font-family: var(--rubik);
+    text-align: left;
+}
+
+.gca__header > h2 {
+    font-size:1.7rem;
+    text-align: left;
+    margin-right: 0.4rem;
+}
+
+.gca__btn > button {
+    padding:0.3rem 0.8rem;
+    color: black;
+    border:1px solid black;
+    font-family: var(--raleway);
+    background-color:white;
+    margin-left:.3rem;
+    font-weight: 600;
+    cursor: pointer;
+
+
+}
+
+.gca__btn > button:hover {
+    background-color: black;
+    color: white;
+
+}
+
+
+.gca__header  {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 758px) {
+    .gca__productgrid > img {
+        width: 100%;
+        height: 300px;
+        display: none;
+        object-fit: contain;
+        object-position: 50%;
+        margin-bottom: 1rem;
+
+    }
+
+    .gca__productgrid {
+        grid-template-columns: 100%;
+    }
+
+    .gca__header > h2 {
+        font-size:20px;
+        text-align: left;
+        line-height: 34px;
+    }
+
+    .gca__btn > button {
+        padding:0.2rem 0.6rem;
+       
+    
+    
+    }
+
+    .gca__header {
+        text-align: left;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+
+
+
+}

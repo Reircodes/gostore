@@ -1,0 +1,30 @@
+.shop__container {
+    text-align: left;
+    font-family: 'Raleway', sans-serif;
+    margin: auto;
+    max-width: 1100px;
+  
+   
+
+   
+}
+
+.shop {
+   
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.shop__Products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(250px , 1fr));
+}
+
+.shop__body {
+    margin: 0 auto;
+    max-width: 1100px;
+    margin-top: 5rem;
+}

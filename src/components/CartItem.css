@@ -1,0 +1,90 @@
+
+td > .MuiSvgIcon-root {
+    color: #707070;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition :all 100ms ease-in-out;
+}
+
+.MuiSvgIcon-root:hover {
+    color: red;
+}
+
+
+
+  
+
+td {
+    padding: 10px 5px;
+    
+font-size: .9rem;
+  }
+  
+  td input {
+    width: 40px;
+    padding: 5px;
+  font-family:   'Raleway', sans-serif;
+  }
+
+  
+.cart__row {
+    border-bottom: 1px solid #f1f1f1;
+}
+  
+
+
+/* Chrome, Safari, Edge, Opera
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+/* input[type=number] {
+  -moz-appearance: textfield;
+} */ */
+
+
+
+
+.cart__info > img {
+    width : 130px;
+
+}
+
+.cart__info > p {
+    width:40%;
+    font-family: 'Raleway', sans-serif;
+    font-size: .8rem;
+    letter-spacing: 1px;
+
+}
+
+
+
+.cart__info {
+    display: flex;
+    flex-direction: row;
+   align-items: center;
+   flex-wrap: wrap;
+}
+
+td:last-child {
+    text-align: right;
+  }
+
+
+
+@media only screen and (max-width: 500px){
+  .cart__info > img {
+    width: 80px;
+
+}
+
+
+.cart__row :nth-child(4){
+  display: none;
+
+} 
+}

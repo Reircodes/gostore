@@ -1,0 +1,275 @@
+.banners__container {
+    margin-top: 2rem;
+    font-family: var(--rubik);
+  
+    
+}
+
+.banners {
+    max-width: 1100px;
+    height: 215;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: .5rem;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill , minmax(450px, 1fr));
+    z-index: -1;
+    padding: 1rem;
+}
+
+
+.banner {
+    position: relative;
+    background-size: cover;
+    transition: all 150ms ease-in-out;
+    cursor:pointer;
+    width: 100%;
+  
+    
+   
+}
+
+
+
+
+figure {
+    width: 100%;
+    overflow: hidden;
+    
+    
+    
+}
+
+
+.banner .fig2 img {
+    transition: 0.3s transform;
+    width: 100%;
+   
+}
+
+.banner:hover .fig2 img {
+    transform: scale(1.25);
+
+  
+  }
+
+
+
+.banner:hover .banner__button {
+    background-color:red;
+    color: white;
+}
+
+
+
+
+
+.banner__content {
+    text-align: left;
+    width: 30%;
+    position: absolute;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    padding: 2.5rem;
+    margin-left: 2.5rem;
+    font-family:'Raleway' , sans-serif;
+    
+
+
+}
+
+.banner__content > p {
+    color: red;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family:'Raleway' , sans-serif;
+
+}
+
+.banner__content > h3 {
+    font-size: 1.3rem;
+    margin-top:.5rem;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 900 !important;
+
+
+
+}
+
+.banner__button {
+    border: 0;
+    background: white;
+    cursor: pointer;
+    padding: .6rem .9rem;
+    font-weight: 900;
+    font-size: 0.7rem;
+    font-family: var(--raleway-font);
+    margin-top: 0.9rem;
+}
+
+
+
+@media only screen and (max-width:800px){
+    
+    .banner__content > h3 {
+      
+        font-size: 1.3rem !important;       
+    
+    }
+
+    .banner__button {
+        padding: .4rem .8rem !important; 
+     
+    
+    }
+
+}
+
+
+@media only screen and (max-width:600px){
+    
+    .banner__content > h3 {
+      
+        font-size: 1.2rem !important;   
+    }
+
+    .banner__button {
+        padding: .4rem .8rem !important;
+    
+    }
+
+}
+
+@media only screen and (max-width:500px) {
+       
+    .banner__content > h3 {
+      
+        font-size: 1rem !important;       
+    
+    }
+
+}
+
+
+
+
+@media only screen and (max-width: 955px) {
+    .banners {
+        grid-template-columns:50% 50%;
+    }
+    .banner__content > p {
+      
+        font-size: 12px;
+
+
+       
+    
+    }
+
+    .banner__content > h3 {
+      
+        font-size: 14px;
+
+
+       
+    
+    }
+
+    .banner__button {
+        padding: .2rem .6rem;
+    
+    }
+    
+}
+
+@media only screen and (max-width: 1070px) {
+    .banners {
+        grid-template-columns:50% 50%;
+    }
+    .banner__content > p {
+      
+        font-size: 10px;
+        letter-spacing: 1px;
+
+
+       
+    
+    }
+
+    .banner__content > h3 {
+      
+        font-size: 15px;
+
+
+       
+    
+    }
+
+    .banner__button {
+        padding: .4rem .7rem;
+    
+    }
+    
+}
+
+@media only screen and (max-width: 900px) {
+    .banner__content > h3 {
+      
+        font-size: 13px;
+       
+    
+    }
+            
+}
+
+
+/* 
+@media only screen and (max-width: 945px){
+    .banners {
+        height: 150px;
+    }
+} */
+
+
+@media only screen and (max-width: 800px)  {
+ .banners {
+    grid-template-columns: repeat(auto-fill , minmax(450px, 1fr));
+ }
+
+ .banner__content > h3 {
+      
+    font-size: 15px;
+   
+
+}
+
+.banner__content > p {
+      
+    font-size: 10px;
+    letter-spacing: 1px;
+
+
+   
+
+}
+
+.banner__content > h3 {
+  
+    font-size: 15px;
+
+
+   
+
+}
+
+
+.banner__content > p {
+      
+    font-size: 12px;
+   
+
+}
+   
+}

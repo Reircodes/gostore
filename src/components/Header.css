@@ -1,0 +1,253 @@
+.nav__header {
+    background-color: var(--footer-color);
+    color: white;
+    font-family: 'Raleway' , sans-serif;
+    font-weight: 400 !important;
+    position: sticky;
+    top: 0;
+    z-index: 100000;
+    -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.7);
+    -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.7);
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.7);
+    
+  
+}
+
+.nav__container {
+    margin: auto;
+    max-width: 1100px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+}
+
+
+
+.nav__link > img {
+    width: 50% !important;
+    margin-bottom: .5rem !important;
+    cursor: pointer;
+    margin: auto !important;
+    justify-content: center;
+    position: relative;
+    left: 25%;
+}
+
+.header__nav > ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.header__nav > ul > li {
+    list-style: none;
+    padding-left: 2.5rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.header__cart > a {
+    display: flex;
+    position: relative;
+
+}
+
+.header__cart > a > .MuiSvgIcon {
+    z-index: -1;
+}
+
+.header__cart > a > .MuiSvgIcon:hover{
+    color: white !important;
+}
+
+.header__cart > a > p {
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    z-index:100000;
+    color: white;
+    border: 1px solid red;
+    border-radius: 50%;
+    /* height: 15px;
+    width: 15px; */
+    padding: 1px;
+    background-color: red;
+    display: flex;
+    font-size: 0.7rem;
+    font-weight: 600 !important;
+    
+}
+.header__menu {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    position: relative;
+    color: white;
+  }
+  
+  a::before, a::after {
+    content: '';
+    position: absolute;
+    bottom: -0.2rem;
+    width: 0;
+    height: 0.1rem;
+    background: red;
+  }
+  
+  a::before {
+    left: 0;
+  }
+  
+  a::after {
+    right: 0;
+    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  
+  li:hover a::before {
+    width: 100%;
+    transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  
+  li:hover a::after {
+    width: 100%;
+    background: transparent;
+    transition: 0s;
+  }
+
+  
+ 
+
+
+@media only screen and (max-width : 758px){
+    .nav__container .nav__link > img {
+        width: 30%;
+        margin-bottom: .5rem;
+        left:0;
+        
+    }
+    
+
+}
+
+
+@media only screen and (max-width: 730px){
+
+    .nav__container .nav__link > img {
+        width: 25%;
+        margin-bottom: .5rem;
+        left:0;
+        
+    }
+
+    .hideMenu {
+        transition:all 600ms ease-in;
+        transform: translateX(-100%);
+        opacity: 1;
+     
+    
+    }
+    
+    .showMenu {
+        transition:all 600ms ease;
+        transform: translateX(0%);
+        opacity: 0;
+        
+    
+    }
+      
+    
+
+
+
+    .nav__container {
+        flex-direction: row;
+        position: relative;
+    }
+    .header__nav {
+        position:absolute;
+        bottom:-100vh;
+        right:0;
+        width: 80%;
+        height: 100vh;
+    }
+
+    .header__nav > ul {
+        flex-direction: column;
+        background-color:var(--footer-color);
+        margin: auto;
+        height: 100vh;
+        align-items: center !important;
+        transform: translateX(100%);
+        transition:all 600ms ease;
+        z-index: 1000000000 !important;
+       
+        
+      
+     
+    }
+
+
+    .header__menu {
+        display: none;
+    }
+
+    .header__nav > ul :nth-child(4) {
+        display: none;
+    }
+
+    .header__nav > ul > li {
+        padding: 1rem;
+        /* margin-left: 90%; */
+        /* margin-right: auto; */
+        width: 100%;
+        text-align: center;
+      
+     
+        
+    }
+
+    
+    .header__menu {
+        display: flex;
+        align-items: center;
+      
+    }
+
+    .header__menu > .MuiSvgIcon-root {
+        cursor: pointer;
+    }
+
+    .header__menuspan > .nav__link {
+        display: flex;
+        padding-left: 1rem;
+    
+    }
+    .header__menuspan > .nav__link > p{
+        font-size: 12px;
+        font-weight: 400;
+        z-index: 10;
+        color:white;
+        border-radius: 50%;
+        padding: 5px;
+        height: 5px;
+        width: 5px;
+        background-color: red;
+        position: relative;
+      
+       
+    }
+
+    .header__menuspan > .nav__link p > span {
+        position:absolute;
+        bottom:20%;
+        cursor: pointer;
+        
+    }
+}
