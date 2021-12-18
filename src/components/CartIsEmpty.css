@@ -1,0 +1,12 @@
+.cartIsempty {
+    margin: 1rem;
+    font-family: var(--raleway-font);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+}
+
+.cartIsempty > span {
+    color: #ff0000;
+}

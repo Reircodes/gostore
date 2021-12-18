@@ -4,12 +4,12 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import { deleteProductFromCart } from '../redux/cartSlice'
 import { useDispatch } from 'react-redux'
 import { addPrice } from '../redux/PriceTotalSlice';
+import Spinner from './Spinner';
 
 
 const CartItem = ({id , img , price ,productName , onDelete , item}) => {
-    // const [value , setValue] = useState(1)
 
-    console.log(id)
+  
 
   
 
@@ -17,7 +17,8 @@ const CartItem = ({id , img , price ,productName , onDelete , item}) => {
     const [value , setValue] = useState(1)
 
    
-      const subTotal = value * parseInt(price)
+      const subTotal = value * parseInt(item.cart.price)
+      console.log(price)
 
           dispatch(addPrice({
             total : subTotal
@@ -28,10 +29,6 @@ const CartItem = ({id , img , price ,productName , onDelete , item}) => {
 
     }
 
-
-    const deleteFromCart = () => {
-        dispatch(deleteProductFromCart({id : id}))
-    }
 
 
     return (

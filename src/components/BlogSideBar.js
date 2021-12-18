@@ -19,26 +19,26 @@ const BlogSideBar = () => {
                </h1>
                <div>
                <p>
-                <ArrowForwardIosIcon/>  Accessories
+               > Accessories
                 </p>
                 <p>
                 
-                <ArrowForwardIosIcon/>  Cameras
+                >  Cameras
                 </p>
                 <p>
-                <ArrowForwardIosIcon/>  Laptops
-                </p>
-                <p>
-                  
-                <ArrowForwardIosIcon/>  Quote
+              >  Laptops
                 </p>
                 <p>
                   
-                <ArrowForwardIosIcon/> SmartPhone
+           >  Quote
+                </p>
+                <p>
+                  
+              > SmartPhone
                 </p>
                 <p>
                    
-                <ArrowForwardIosIcon/>  Video
+        >  Video
                 </p>
                </div>
             </section>

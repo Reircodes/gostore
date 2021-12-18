@@ -4,30 +4,40 @@ import CartItem from './CartItem'
 import { useSelector } from 'react-redux'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { Link } from 'react-router-dom';
+import CartIsEmpty from './CartIsEmpty';
 
 
 
 const Cart = ({cartItem , deleteItem}) => {
     const [value , setValue] = useState(1)
-    const price = cartItem.map((item) => parseInt(item.price * value))
-    const total = price.reduce((acc ,item) => (acc += item), 0)
-        //    const totalPrice = useSelector((state) => state.total)
+    // const price = cartItem.map((item) => parseInt(item.price * value))
+    // const total = price.reduce((acc ,item) => (acc += item), 0)
+
+    // console.log(price)
   
-       console.log()
+  
 
     // const onChange = (e) => {
     //     setValue(e.target.value)
 
     // }
 
+
+    const Clicked = () => {
+        alert('You have reached the end of this application')
+    }
+
+  
     console.log(cartItem.length)
 
     return (
 
         <>
-        <div className='cart__container'>
+        {
+            cartItem.length === 0 ? <CartIsEmpty/> : (
+                <div className='cart__container'>
        
-                <section className={`cart ${cartItem.length > 0 ? 'show' : 'hide'}`}>
+                <section className={`cart`}>
                <table>
                    <tr>
                    <th>Product</th>  
@@ -39,15 +49,11 @@ const Cart = ({cartItem , deleteItem}) => {
                  {
                      cartItem.map(cart => (
                        <CartItem
-                    //    img={item.img}
-                    //     productName={item.productName}
-                    //     price={item.price}
-                    //     key={item.id}
-                    //     id={item.id}
                         onDelete= {deleteItem}
                     item={cart}
                     key={cart.id}
                     id={cart.id}
+                    price={cart.price}
                         
                     
                        
@@ -64,19 +70,16 @@ const Cart = ({cartItem , deleteItem}) => {
 
 
            <section className={`cart__checkout ${cartItem.length > 0 ? 'show' : 'hide'}`}>
-             <p>
-             Total :    {
-                       total
-                   }
-             </p>
-
-                   <button className='cart__checkoutbutton'>
+            
+                   <button className='cart__checkoutbutton' onClick={Clicked}>
                       Checkout
                    </button>
            </section>
    
         </div>
    
+            )
+        }
         </>
     )
 }

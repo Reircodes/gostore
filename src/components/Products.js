@@ -6,35 +6,34 @@ import { addProductToCart } from '../redux/cartSlice';
 import { useSelector } from 'react-redux';
 import db from '../firebase';
 import { addDoc , collection} from 'firebase/firestore/lite'
-import {setDoc } from "firebase/firestore"; 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import Spinner from './Spinner';
 
 
 
 
 const Products = ({discount , img , price , productName, key}) => {
-    
+    AOS.init()
    const [disable , setDisable] = useState('false')
    const cart = useSelector((state) => state.cart)
+   const [showSpinner , setShowSpinner] = useState('false')
   
-
-
-
-   const onDoubleClick = () => {
-       alert('item has been added already!!')
-   }
 
     const dispatch = useDispatch();
 
     const addProduct = async () => {
 
 
-        const item = {
-                img : img ,
-                productName : productName ,
-                price : price ,
-                discount : discount ,
+        // const item = {
+        //         img : img ,
+        //         productName : productName ,
+        //         price : price ,
+        //         discount : discount ,
             
-            }
+        //     }
+
+        setShowSpinner('true')
 
             await addDoc(collection(db,"cartItem"),
             {
@@ -45,40 +44,7 @@ const Products = ({discount , img , price , productName, key}) => {
             
             })
 
-            // const cartRef = collection(db , "cartItem");
-
-            // await setDoc(doc(cartRef)),
-            // {
-            //     img : img ,
-            //     productName : productName ,
-            //     price : price ,
-            //     discount : discount ,
-            // }
-
-//             const citiesRef = collection(db, "cartItem");
-
-// await setDoc(doc(citiesRef, id), {
-//     img: img, productName: productName, price: price,
-//     discount: discount, 
-//     });
-
-
-            
-
-
-        // const res = await fetch('http://localhost:5000/cartItem' , 
-        // {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-type': 'application/json'
-        //   },
-        //   body: JSON.stringify(item)
-        // })
-
-
-        // console.log(res)
-
-
+         
         setDisable('true')
 
         // console.log(disable)
@@ -95,67 +61,15 @@ const Products = ({discount , img , price , productName, key}) => {
             discount : discount ,
 
         }))
-        // const res = await fetch('http://localhost:5000/cartItem'
-        // , {
-        //     method: 'POST' ,
-        //     headers : {
-        //         'Content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(item)
-        // })
-
-        // const data = res.json()
-
-        // console.log(data)
-
-//   addShopItem({
-//     img : img ,
-//     productName : productName ,
-//     price : price ,
-//     discount : discount ,
-
-// })
-
-    //  addHomeAppliancesItem({
-    //     img : img ,
-    //     productName : productName ,
-    //     price : price ,
-    //     discount : discount ,
-    
-    // })
-
-        // addGcaItem({
-        //     img : img ,
-        //     productName : productName ,
-        //     price : price ,
-        //     discount : discount ,
-        
-        // })
-
-    //     addSmartPhoneItem({
-    //         img : img ,
-    //         productName : productName ,
-    //         price : price ,
-    //         discount : discount ,
-        
-    //     })
-
-    //     addFlashSalesItem({
-    //         img : img ,
-    //         productName : productName ,
-    //         price : price ,
-    //         discount : discount ,
-        
-    //     })
-
-
-
+     
 
 
     }
 
     return (
         <div className='products' data-aos="zoom-in-up">
+
+            {/* <Spinner/> */}
             <img src={img}/>
             <p>{productName}</p>
             <p>
@@ -169,7 +83,7 @@ const Products = ({discount , img , price , productName, key}) => {
             </div>
             
 
-            <button className={`products__button ${disable === 'true' ? 'hide' : ''} `}   onClick={addProduct}>ADD TO CART <ArrowRightAltIcon/> </button>
+            <button className={`products__button ${disable === 'true' ? 'hide' : ''} `}   onClick={addProduct}>ADD TO CART {showSpinner === 'false' ? <ArrowRightAltIcon/> : <Spinner/>} </button>
             <p  className={`added__button ${disable === 'true' ? 'show' : 'hide'} `}>Added to cart</p>
         </div>
     )

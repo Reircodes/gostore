@@ -77,7 +77,7 @@ function App() {
               console.log(userName)
            
               
-            }).catch((error)=>console.log(error))
+            }).catch((error)=>alert('Your connection is slow : Please Reload'))
        }
     
 
@@ -85,6 +85,9 @@ function App() {
   // Delete Task
 
    async function deleteItem (id) {
+
+       setCartItem(cartItem.filter((item) => item.id !== id
+      ))
       var ref = doc(db,'cartItem',id);
 
 
@@ -104,8 +107,7 @@ function App() {
       }
 
 
-      setCartItem(cartItem.filter((item) => item.id !== id
-      ))
+   
 
   }
 
@@ -142,7 +144,7 @@ function App() {
       </>
     )
 
-    }
+    } 
    
    
 
