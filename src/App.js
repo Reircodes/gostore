@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
 import BlogPage from './components/BlogPage';
@@ -7,7 +6,6 @@ import Cart from './components/Cart';
 import React , {useState, useEffect} from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './components/Header';
-import axios from "axios";
 import Post from './components/Post';
 import { useSelector } from 'react-redux';
 import Footer from './components/Footer';
@@ -15,18 +13,27 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Login from './components/Login';
 import db from './firebase'
-import { collection,addDoc, getDoc } from 'firebase/firestore/lite'
+import { collection,getDoc } from 'firebase/firestore/lite'
+import { useDispatch } from 'react-redux';
+import { addUser } from './redux/userSlice';
 import {  getDocs } from 'firebase/firestore/lite';
 import { doc,  deleteDoc  } from "firebase/firestore/lite";
-
+import { useStateValue } from './context/StateProvider';
+import { getAuth,  GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 
 function App() {
+               
+  AOS.init();
   const cart = useSelector((state) => state.cart)
-  const [cartItem , setCartItem] = useState([
+  const user = useSelector((state) => state.user)
+  const [cartItem , setCartItem] = useState([ ])
+  const [userName , setUserName] = useState(null)
 
-  ])
-  
+
+
+  const dispatch = useDispatch();
+
 
   console.log(cartItem)
 
@@ -44,31 +51,40 @@ function App() {
 
 
 
+      const signIn =()=>{
+        
+        const auth = getAuth();
+      
+        const provider = new GoogleAuthProvider();
+              signInWithPopup(auth,provider)
+            .then((result) => {
+            
+ console.log(result.user.displayName)
+ console.log(result.user)
+
+
+              const name =  result.user.displayName;
+             
+            //   dispatch(addUser({
+            //      user: name ,
+    
+            // }))
+
+            
+              setUserName(name)
+ 
+
+              console.log(userName)
+           
+              
+            }).catch((error)=>console.log(error))
+       }
+    
+
   
   // Delete Task
 
    async function deleteItem (id) {
-      // await fetch(`http://localhost:5000/cartItem/${id}` ,
-      // {
-      //   method: 'DELETE'
-      // // })
-      // await deleteDoc(doc(db, "cartItem"));
-
-      // db.collection('cartItem').doc(id).delete()
-      // const postsCol=collection(db, 'cartItem');
-
-      // await postsCol.docs(id).delete();
-
-      // var docRef = collection(db, "cartItem").doc(id)
-
-      // docRef.delete()
-
-      
-
-      // const postsCol=collection(db, 'cartItem');
-      // // await deleteDoc(postsCol , id)
-      // db.collection("cartItem").document(id).delete() 
-
       var ref = doc(db,'cartItem',id);
 
 
@@ -87,60 +103,19 @@ function App() {
         console.log('Docc does not exist')
       }
 
-      
-// await deleteDoc(doc(db, "cartItem", id));
-            
-
-      
-
-
 
       setCartItem(cartItem.filter((item) => item.id !== id
       ))
 
   }
 
-  // Add To Cart 
-  // const addGcaItem = async (item) => {
-  //   const res = await fetch('http://localhost:5000/cartItem' , 
-  //   {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-type': 'application/json'
-  //     },
-  //     body: JSON.stringify(item)
-  //   })
+  
 
 
-  //   const data =await res.json()
 
-  //   setCartItem([...cartItem , data])
-  // }
-
-  // const addShopItem = async (item) => {
-    // const res = await fetch('http://localhost:5000/cartItem' , 
-    // {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-type': 'application/json'
-    //   },
-    //   body: JSON.stringify(item)
-    // })
-
-  //   const res = await fetch('http://localhost:5000/cartItem')
-
-
-  //   const data =await res.json()
-
-  //   setCartItem([...cartItem , data])
-  // }
-
-
-  AOS.init();
-const user = null
   return (
     <>
-    {!user ? (<Login/>)
+    {!userName ? (<Login signIn={signIn}/>)
     : (
       <>
       <BrowserRouter>

@@ -26,9 +26,7 @@ const Cart = ({cartItem , deleteItem}) => {
 
         <>
         <div className='cart__container'>
-          <Link to='/shop'>     <p className={`cart__empty ${cartItem.length == 0 ? 'show' : 'hide' }`}>
-       Cart is empty!! , Click here to go to Shop
-            </p></Link>  
+       
                 <section className={`cart ${cartItem.length > 0 ? 'show' : 'hide'}`}>
                <table>
                    <tr>

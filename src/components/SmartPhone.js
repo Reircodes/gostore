@@ -7,7 +7,7 @@ const SmartPhone = () => {
     const products = useSelector((state) => state.products)
 
 const SmartPhones =   products.filter(item => item.category === 'smartphone & Tablet') ;
-const FilteredSmartPhones =SmartPhones.filter( (item , i) => i < 6)
+const FilteredSmartPhones =SmartPhones.filter( (item , i) => i < 8)
 console.log(FilteredSmartPhones)
 
     return (

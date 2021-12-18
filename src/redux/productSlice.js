@@ -150,11 +150,11 @@ const productSlice = createSlice({
             
         },
         {   id : 19,
-            img : 'https://m.media-amazon.com/images/I/61nIlULslFL._AC_SL1500_.jpg',
-            price : '41.99',
-            oldPrice : '61.00',
+            img : 'https://demo.theme-sky.com/gostore/wp-content/uploads/2021/02/electronic-65.jpg',
+            price : '199.99',
+            oldPrice : '99.00',
             category:'Game & Accessories',
-            productName : 'eXtremeRate Black Rubberized Grip Programable RISE 2.0 Remap Kit for PS5'
+            productName : 'Miles Morales Ultimate Launch Edition'
         }
         ,
         {   id : 20,
@@ -268,6 +268,24 @@ const productSlice = createSlice({
             oldPrice: '60.00',
             category:'smartphone & Tablet',
             flashsales : true
+            
+        },
+        {   id : 33,
+            img:'https://demo.theme-sky.com/gostore/wp-content/uploads/2021/02/electronic-15.jpg',
+            productName:'Dell OptiPlex 7000 7480 All-in-One Computer',
+            price:'159.00',
+            oldPrice: '179.00',
+            category:'Game & Accessories',
+         
+            
+        },
+        {   id : 34,
+            img:'https://demo.theme-sky.com/gostore/wp-content/uploads/2020/11/electronic-43.jpg',
+            productName:'Ultra Thin LED Monitor HDMI VGA Full HD 1080P',
+            price:'235.00',
+            oldPrice: '255.00',
+            category:'Game & Accessories',
+         
             
         },
     

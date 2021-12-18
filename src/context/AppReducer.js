@@ -1,21 +1,25 @@
-export default (state,action) => { console.log(action)
-    console.log(state.cart)
-    switch(action.type) {
-        case 'DELETE_FROM_CART':
+export const initialState ={
+    user: null,
+}
+
+export const actionTypes ={
+    SET_USER: 'SET_USER',
+
+}
+
+const reducer = (state,action) => {
+    console.log(action);
+    switch (action.type) {
+        case actionTypes.SET_USER:
             return {
-                ...state ,
-                cart : state.cart.filter(item => item.id !== action.payload)
-            }
-       
-        case 'ADD_PRODUCT_TO_CART' :
-            return {
-                ...state ,
-                cart : [action.payload , ...state.cart]
+                ...state,
+                user: action.user,
+
             }
 
-
-        default:
-
-            return state;
+            default:
+                return state;
     }
 }
+
+export default reducer;

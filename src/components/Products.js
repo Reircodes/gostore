@@ -12,6 +12,7 @@ import {setDoc } from "firebase/firestore";
 
 
 const Products = ({discount , img , price , productName, key}) => {
+    
    const [disable , setDisable] = useState('false')
    const cart = useSelector((state) => state.cart)
   
