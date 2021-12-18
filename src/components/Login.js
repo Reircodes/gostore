@@ -8,6 +8,7 @@ const Login = () => {
          <button>
              Login
          </button>
+         <p>Click to <span>automatically</span> login with gmail</p>
         </div>
     )
 }

@@ -140,28 +140,37 @@ function App() {
 const user = null
   return (
     <>
-   {/* <Login/> */}
-    <BrowserRouter>
-    <Header cartItem={cartItem}/>
-    <div className="App">
-      <Routes>
-   <Route path='/' element={<Home/>} /> 
-   <Route path='blogpage' element={<BlogPage/> } />
-   <Route path='shop' element={<Shop
-    /> } />
-   <Route path='cart' element={<Cart 
-   cartItem={cartItem} 
-   deleteItem={deleteItem}/> } />
-
-   <Route path='/blogpage/:id' element={<Post/>} />
-
+    {!user ? (<Login/>)
+    : (
+      <>
+      <BrowserRouter>
+      <Header cartItem={cartItem}/>
+      <div className="App">
+        <Routes>
+     <Route path='/' element={<Home/>} /> 
+     <Route path='blogpage' element={<BlogPage/> } />
+     <Route path='shop' element={<Shop
+      /> } />
+     <Route path='cart' element={<Cart 
+     cartItem={cartItem} 
+     deleteItem={deleteItem}/> } />
   
-     </Routes>
-    </div>
+     <Route path='/blogpage/:id' element={<Post/>} />
+  
+    
+       </Routes>
+      </div>
+  
+      </BrowserRouter>
+  
+      <Footer/>
+      </>
+    )
 
-    </BrowserRouter>
+    }
+   
+   
 
-    <Footer/>
     </>
   );
 }

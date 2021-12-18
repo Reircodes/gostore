@@ -234,6 +234,42 @@ const productSlice = createSlice({
             
             
         },
+        {   id : 29,
+            img:'https://demo.theme-sky.com/gostore/wp-content/uploads/2021/02/electronic-25.jpg',
+            productName:'HP Pavilion27-Inch Full HD IPS LED Monitor',
+            price:'899.00',
+            oldPrice: '999.00' ,
+            category:'Electronic & Housewares'
+            
+            
+        },
+        {   id : 30,
+            img:'https://demo.theme-sky.com/gostore/wp-content/uploads/2021/02/electronic-67.jpg',
+            productName:'Wired Over-Ear Gaming Headphones with USB',
+            price:'15.00',
+            oldPrice: '20.00' ,
+            category:'Game & Accessories',
+            flashsales : true
+            
+            
+        },
+        {   id : 31,
+            img:'https://demo.theme-sky.com/gostore/wp-content/uploads/2021/01/electronic-38.jpg',
+            productName:'Android 9.0 Pie Unlocked Tablet with SIM Card',
+            price:'199.00',
+            oldPrice: '250.00' ,
+            category:'smartphone & Tablet'
+            
+        },
+        {   id : 32,
+            img:'https://demo.theme-sky.com/gostore/wp-content/uploads/2020/11/electronic-52.jpg',
+            productName:'ZenBook Duo Nano Edge Bezel Touch Display',
+            price:'59.00',
+            oldPrice: '60.00',
+            category:'smartphone & Tablet',
+            flashsales : true
+            
+        },
     
     ] ,
     reducers : {
