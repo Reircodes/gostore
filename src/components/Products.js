@@ -9,6 +9,10 @@ import { addDoc , collection} from 'firebase/firestore/lite'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Spinner from './Spinner';
+import {  getDoc } from 'firebase/firestore/lite';
+// import { doc} from "firebase/firestore/lite";
+import { doc, setDoc } from "firebase/firestore/lite"; 
+import CheckIcon from '@mui/icons-material/Check';
 
 
 
@@ -16,7 +20,6 @@ import Spinner from './Spinner';
 const Products = ({discount , img , price , productName, key}) => {
     AOS.init()
    const [disable , setDisable] = useState('false')
-   const cart = useSelector((state) => state.cart)
    const [showSpinner , setShowSpinner] = useState('false')
   
 
@@ -33,19 +36,61 @@ const Products = ({discount , img , price , productName, key}) => {
             
         //     }
 
+
+       
+
+   
+     
+
+        // await addDoc(collection(db,"cartItem",productName),
+        // {
+        //     img : img ,
+        //     productName : productName ,
+        //     price : price ,
+        //     discount : discount ,
+        
+        // })
+
+        // const ref = doc(db, 'cartItem', productName);
+    
+    
+
+     
+  
+
+    var ref = doc(db,'cartItem',productName);
+    const docSnap = await getDoc(ref)
+
+    console.log(docSnap)
+
+        
+    if(docSnap.exists()){
+     alert('This Product is already in cart')
+    
+
+    }else{
         setShowSpinner('true')
-
-            await addDoc(collection(db,"cartItem"),
-            {
-                img : img ,
-                productName : productName ,
-                price : price ,
-                discount : discount ,
-            
-            })
-
-         
+        await setDoc(ref,  {
+            img : img ,
+            productName : productName ,
+            price : price ,
+            discount : discount ,
+        
+        }).then(()=> {
+            console.log('Added')
+        }).catch((err)=> {
+            alert(err)
+        })
         setDisable('true')
+        
+    }
+
+
+      
+
+
+        
+
 
         // console.log(disable)
     

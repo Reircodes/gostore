@@ -5,24 +5,22 @@ import { deleteProductFromCart } from '../redux/cartSlice'
 import { useDispatch } from 'react-redux'
 import { addPrice } from '../redux/PriceTotalSlice';
 import Spinner from './Spinner';
+import { useSelector } from 'react-redux';
 
 
 const CartItem = ({id , img , price ,productName , onDelete , item}) => {
+    
 
   
 
   
 
-    const dispatch = useDispatch();
     const [value , setValue] = useState(1)
 
    
       const subTotal = value * parseInt(item.cart.price)
-      console.log(price)
 
-          dispatch(addPrice({
-            total : subTotal
-        }))
+
 
       const onChange = (e) => {
         setValue(e.target.value)

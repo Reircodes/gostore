@@ -18,7 +18,6 @@ const Header = ({cartItem}) => {
        }
     }
 
-    console.log(show)
 
     const logoOnClick = () => {
         if(show === 'true'){
@@ -27,7 +26,6 @@ const Header = ({cartItem}) => {
       
      }
  
-     console.log(show)
  
 
 
@@ -55,15 +53,15 @@ const Header = ({cartItem}) => {
                         Home
                         </Link>
                     </li>
-                    <li  ><Link to='/blogpage' onClick={onClick} className='nav__link'>
-                        BlogPage
-                        </Link>
-                    </li>
+                   
                     <li ><Link to='/shop'  onClick={onClick} className='nav__link'>
                         Shop
                         </Link>
                     </li>
-               
+                    <li  ><Link to='/blogpage' onClick={onClick} className='nav__link'>
+                        BlogPage
+                        </Link>
+                    </li>
                     <li className='header__cart'><Link to='/cart' className='nav_-link'>
                     <ShoppingBasketIcon/><p>{cartItem.length}</p>
                     </Link>

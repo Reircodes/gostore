@@ -10,18 +10,6 @@ import CartIsEmpty from './CartIsEmpty';
 
 const Cart = ({cartItem , deleteItem}) => {
     const [value , setValue] = useState(1)
-    // const price = cartItem.map((item) => parseInt(item.price * value))
-    // const total = price.reduce((acc ,item) => (acc += item), 0)
-
-    // console.log(price)
-  
-  
-
-    // const onChange = (e) => {
-    //     setValue(e.target.value)
-
-    // }
-
 
     const Clicked = () => {
         alert('You have reached the end of this application')

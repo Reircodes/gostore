@@ -8,7 +8,7 @@ const SmartPhone = () => {
 
 const SmartPhones =   products.filter(item => item.category === 'smartphone & Tablet') ;
 const FilteredSmartPhones =SmartPhones.filter( (item , i) => i < 8)
-console.log(FilteredSmartPhones)
+
 
     return (
         <article className='smartphone'>

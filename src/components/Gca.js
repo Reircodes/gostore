@@ -8,7 +8,7 @@ const Gca = () => {
 
     const Gca =   products.filter(item => item.category === 'Game & Accessories' ) ;
     const FilteredGca =Gca.filter( (item , i) => i < 8)
-    console.log(FilteredGca)
+    
     return (
         <article className='gca'>
            <div className='gca__header'>

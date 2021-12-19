@@ -35,7 +35,6 @@ function App() {
   const dispatch = useDispatch();
 
 
-  console.log(cartItem)
 
   useEffect(()=> {
   async function getPosts() {
@@ -59,8 +58,6 @@ function App() {
               signInWithPopup(auth,provider)
             .then((result) => {
             
- console.log(result.user.displayName)
- console.log(result.user)
 
 
               const name =  result.user.displayName;
@@ -74,7 +71,6 @@ function App() {
               setUserName(name)
  
 
-              console.log(userName)
            
               
             }).catch((error)=>alert('Your connection is slow : Please Reload'))
@@ -96,14 +92,14 @@ function App() {
 
       console.log(docSnap)
 
-
+          
       if(docSnap.exists()){
         await deleteDoc(ref).then(()=> console.log('Success')).catch((err) => {
           console.log('Unsuccesful Operation')
         })
 
       }else{
-        console.log('Docc does not exist')
+        console.log('Doc does not exist')
       }
 
 
