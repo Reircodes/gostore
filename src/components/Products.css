@@ -37,14 +37,14 @@
 }
 
 .products__button {
-    background-color: var(--footer-color);
+    background-color: var(--footer-color) !important;
     border: none;
-    font-size: 0.7rem;
-    font-weight: 700;
-    color:white;
-    cursor: pointer;
-    padding: .5rem;
-    font-family: var(--raleway-font);
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    color:white !important;
+    cursor: pointer !important;
+    padding: .5rem !important;
+    font-family: var(--raleway-font) !important;
     letter-spacing: 1px;
     display: flex;
     align-items: center;
@@ -63,10 +63,7 @@
   border-radius: 6px;
   justify-content: center;
   margin-top: 1rem !important;
-  -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.5);
-  -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.5);
-  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.5);
-
+  
 }
 
 .added__button {
@@ -94,7 +91,11 @@
     text-transform: uppercase;
 }
 
-.products__button:hover {
+
+
+.products__button > .MuiSvgIcon-root:hover {
+    color: white;
+    
 
 }
 .product__caution {
